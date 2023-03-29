@@ -43,7 +43,7 @@ createApp({
     };
     },
     mounted() {
-        this.startAutoscroll();
+        this.startAutoplay();
     },
     methods: {
       showNext() {
@@ -60,10 +60,12 @@ createApp({
           this.activeImage = this.slides.length - 1;
         }
       },
-      startAutoscroll() {
-        console.log("interval", this.time);
-        this.interval = setInterval(this.showNext, this.time);
+      startAutoplay() {
+        myInterval = setInterval(this.showNext, this.time);
       },
+      stopAutoplay() {
+        clearInterval(myInterval)
+      }
 
     },
   }).mount("#app");
